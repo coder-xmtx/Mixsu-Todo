@@ -34,15 +34,15 @@ import ThemeSwap from './ThemeSwap.vue';
                 to="/">Mixsu Todo</RouterLink>
         </div>
         <div class="navbar-center hidden lg:flex">
-            <ul class="menu menu-horizontal px-1">
+            <ul class="menu menu-horizontal gap-10 font-bold">
                 <li>
-                    <RouterLink to="/todo">Todo</RouterLink>
+                    <RouterLink to="/todo" active-class="text-primary">Todo</RouterLink>
                 </li>
                 <li>
-                    <RouterLink to="/tag">Tag</RouterLink>
+                    <RouterLink to="/tag" active-class="text-primary">Tag</RouterLink>
                 </li>
                 <li>
-                    <RouterLink to="/about">About</RouterLink>
+                    <RouterLink to="/about" active-class="text-primary">About</RouterLink>
                 </li>
             </ul>
         </div>

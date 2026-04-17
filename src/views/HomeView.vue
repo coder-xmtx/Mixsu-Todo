@@ -25,7 +25,6 @@ onMounted(() => {
 
 </script>
 
-<!-- 文字靠左 在垂直方向居中 -->
 <template>
     <div class="flex justify-start">
         <h1 class="text-3xl font-bold pl-10 pt-10">
