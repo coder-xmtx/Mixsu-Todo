@@ -8,7 +8,7 @@ import NavBar from '@/components/NavBar.vue';
   <nav>
     <NavBar />
   </nav>
-  <main>
+  <main class="container mx-auto p-4">
     <router-view></router-view>
   </main>
 </template>

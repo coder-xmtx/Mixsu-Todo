@@ -72,7 +72,7 @@
 }
 
 @theme {
-  --animate-slideUp: slideUp 0.5s ease-in-out;
+  --animate-slideUp: slideUp 0.2s ease-in-out;
 
   @keyframes slideUp {
     from {

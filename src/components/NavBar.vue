@@ -6,7 +6,7 @@ import ThemeSwap from './ThemeSwap.vue';
 </script>
 
 <template>
-    <div class="navbar bg-base-100 shadow-sm">
+    <div class="navbar bg-base-100 shadow-sm border-b border-primary/10">
         <div class="navbar-start">
             <div class="dropdown">
                 <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
