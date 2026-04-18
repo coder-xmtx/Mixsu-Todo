@@ -4,7 +4,7 @@ import { onMounted } from 'vue';
 
 onMounted(() => {
     // 确保 DOM 已渲染
-    const result = splitText('.flex h1', { words: true, chars: true })
+    const result = splitText('.flex h1 p', { words: true, chars: true })
     const { chars } = result
 
     animate(chars, {
@@ -26,9 +26,9 @@ onMounted(() => {
 </script>
 
 <template>
-    <div class="flex justify-start">
-        <h1 class="text-3xl font-bold pl-10 pt-10">
-            HelloWorld
+    <div class="flex justify-center">
+        <h1 class="flex flex-col text-3xl font-bold">
+            <p>Welcome To My Todo Website</p>
         </h1>
     </div>
 </template>
