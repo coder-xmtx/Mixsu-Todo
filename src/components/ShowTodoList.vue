@@ -1,11 +1,19 @@
-<template>
-    <ul class="list bg-base-100 rounded-box shadow-md gap-3">
+<script setup>
+// 接收父组件传递的数据
+const props = defineProps(['todoList'])
 
-        <li class="list-row border-primary border flex items-center">
-            <div><input type="checkbox" class="checkbox checkbox-primary" /></div>
+
+</script>
+
+<template>
+    <ul class="list rounded-box gap-3">
+
+        <li v-for="todo in todoList" :key="todo.id"
+            class="list-row border-primary border flex items-center shadow-md hover:bg-base-200 transition duration-300 ease-in-out">
+            <div><input type="checkbox" :checked="todo.completed" class="checkbox checkbox-primary" /></div>
             <div class="list-col-grow flex-1">
-                <div>Todo first finish the style</div>
-                <div class="text-xs uppercase font-semibold opacity-60">time</div>
+                <div class="font-semibold">{{ todo.content }}</div>
+                <div class="text-xs uppercase font-semibold opacity-60">{{ todo.time }}</div>
             </div>
             <button class="btn btn-square btn-ghost">
                 <svg class="size-[1.2em]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">

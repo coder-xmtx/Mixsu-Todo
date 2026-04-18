@@ -4,12 +4,17 @@ import ShowTodoList from '@/components/ShowTodoList.vue';
 import { ref } from 'vue';
 
 // 构建todo数据结构
-// todoList = ref([])
+const todoList = ref([])
+
+// 接收子组件传递过来的数据
+const addTodo = (todo) => {
+    todoList.value.push(todo)
+}
 
 </script>
 
 <template>
-    <CreateTodo />
-    <ShowTodoList />
+    <CreateTodo @addTodo="addTodo" />
+    <ShowTodoList :todoList="todoList" />
 
 </template>
