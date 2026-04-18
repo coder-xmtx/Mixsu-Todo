@@ -1,20 +1,18 @@
 <script setup>
 import CreateTodo from '@/components/CreateTodo.vue';
 import ShowTodoList from '@/components/ShowTodoList.vue';
-import { ref } from 'vue';
+import StatsShow from '@/components/StatsShow.vue';
 
-// 构建todo数据结构
-const todoList = ref([])
+import { useTodoStore } from '@/stores/todo';
 
-// 接收子组件传递过来的数据
-const addTodo = (todo) => {
-    todoList.value.push(todo)
-}
+const todoStore = useTodoStore()
 
 </script>
 
 <template>
-    <CreateTodo @addTodo="addTodo" />
-    <ShowTodoList :todoList="todoList" />
+    <CreateTodo />
+    <ShowTodoList />
+
+    <StatsShow />
 
 </template>

@@ -1,6 +1,7 @@
 <script setup>
-// 接收父组件传递的数据
-const props = defineProps(['todoList'])
+import { useTodoStore } from '@/stores/todo';
+
+const todoStore = useTodoStore();
 
 
 </script>
@@ -8,14 +9,17 @@ const props = defineProps(['todoList'])
 <template>
     <ul class="list rounded-box gap-3">
 
-        <li v-for="todo in todoList" :key="todo.id"
+        <li v-for="todo in todoStore.todoList" :key="todo.id"
             class="list-row border-primary border flex items-center shadow-md hover:bg-base-200 transition duration-300 ease-in-out">
-            <div><input type="checkbox" :checked="todo.completed" class="checkbox checkbox-primary" /></div>
+            <div><input type="checkbox" :checked="todo.completed" class="checkbox checkbox-primary"
+                    @change="todoStore.toggleComplete(todo.id)" /></div>
             <div class="list-col-grow flex-1">
-                <div class="font-semibold">{{ todo.content }}</div>
+                <div class="font-semibold text-xl" :class="{ 'line-through opacity-50': todo.completed }">{{
+                    todo.content }}
+                </div>
                 <div class="text-xs uppercase font-semibold opacity-60">{{ todo.time }}</div>
             </div>
-            <button class="btn btn-square btn-ghost">
+            <button class="btn btn-square btn-ghost" @click="todoStore.deleteTodo(todo.id)">
                 <svg class="size-[1.2em]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                     <g stroke-linejoin="round" stroke-linecap="round" stroke-width="2" fill="none"
                         stroke="currentColor">

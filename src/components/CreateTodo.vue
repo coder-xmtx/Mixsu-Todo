@@ -2,8 +2,9 @@
 import { ref, nextTick, watch, onBeforeUnmount } from 'vue'
 import { nanoid } from 'nanoid'
 import IconSubmit from './icons/IconSubmit.vue'
+import { useTodoStore } from '@/stores/todo'
 
-const emit = defineEmits(['addTodo'])
+const todoStore = useTodoStore()
 
 // 将数据传出给todoList组件
 const addTodo = () => {
@@ -12,11 +13,11 @@ const addTodo = () => {
         alert('内容不能为空！')
         return
     }
-    // 发送数据
-    emit('addTodo', {
+    // 存入数据
+    todoStore.addTodo({
         id: nanoid(10),
+        content: inputValue.value,
         time: new Date().toLocaleString(),
-        content: inputValue.value.trim(),
         completed: false
     })
     // 关闭模态框
