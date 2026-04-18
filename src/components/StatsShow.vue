@@ -6,7 +6,7 @@ const todoStore = useTodoStore()
 
 <template>
     <!-- 定位在页面的底部中心 -->
-    <div class="stats fixed bottom-5 left-1/2 -translate-x-1/2 transform stats-horizontal shadow">
+    <div class="stats fixed bottom-5 left-1/2 -translate-x-1/2 transform stats-vertical sm:stats-horizontal shadow">
         <div class="stat">
             <div class="stat-figure text-secondary">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
