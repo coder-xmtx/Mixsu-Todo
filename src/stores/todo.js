@@ -27,7 +27,7 @@ export const useTodoStore = defineStore(
     function addTodo(todo) {
       // 保证传入的数据结构符合预期，可以加上简单校验
       if (!todo || !todo.content) return;
-      todoList.value.push({
+      todoList.value.unshift({
         id: todo.id,
         content: todo.content,
         time: todo.time || new Date().toLocaleString(),

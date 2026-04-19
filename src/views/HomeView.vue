@@ -26,7 +26,7 @@ onMounted(() => {
 </script>
 
 <template>
-    <div class="flex justify-center">
+    <div class="flex justify-center items-center mt-20 ">
         <h1 class="flex flex-col text-3xl font-bold">
             <p>Welcome To My Todo Website</p>
         </h1>

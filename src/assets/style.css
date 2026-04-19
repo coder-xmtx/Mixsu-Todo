@@ -1,10 +1,12 @@
 @import "tailwindcss";
-@plugin "daisyui";
+@plugin "daisyui" {
+  themes:
+    night --default,
+    silk --prefersdark;
+}
 
 @plugin "daisyui/theme" {
   name: "silk";
-  default: false;
-  prefersdark: true;
   color-scheme: "light";
   --color-base-100: oklch(97% 0.0035 67.78);
   --color-base-200: oklch(95% 0.0081 61.42);
@@ -38,8 +40,6 @@
 
 @plugin "daisyui/theme" {
   name: "night";
-  default: true;
-  prefersdark: false;
   color-scheme: "dark";
   --color-base-100: oklch(20.768% 0.039 265.754);
   --color-base-200: oklch(19.314% 0.037 265.754);

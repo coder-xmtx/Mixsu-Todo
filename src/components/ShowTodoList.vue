@@ -14,14 +14,14 @@ const todoStore = useTodoStore();
             <div><input type="checkbox" :checked="todo.completed" class="checkbox checkbox-primary"
                     @change="todoStore.toggleComplete(todo.id)" /></div>
             <div class="list-col-grow flex-1">
-                <div class="font-semibold text-xl" :class="{ 'line-through opacity-50': todo.completed }">{{
+                <div class="font-semibold text-lg" :class="{ 'line-through opacity-50': todo.completed }">{{
                     todo.content }}
                 </div>
-                <div class="text-xs uppercase font-semibold opacity-60">{{ todo.time }}</div>
+                <div class="text-xs font-semibold opacity-60">TIME: {{ todo.time }}</div>
             </div>
             <button class="btn btn-square btn-ghost" @click="todoStore.deleteTodo(todo.id)">
                 <svg t="1776526557880" class="icon fill-primary" viewBox="0 0 1024 1024" version="1.1"
-                    xmlns="http://www.w3.org/2000/svg" width="32" height="32">
+                    xmlns="http://www.w3.org/2000/svg" width="24" height="24">
                     <path
                         d="M905.92 237.76a32 32 0 0 0-52.48 36.48A416 416 0 1 1 96 512a418.56 418.56 0 0 1 297.28-398.72 32 32 0 1 0-18.24-61.44A480 480 0 1 0 992 512a477.12 477.12 0 0 0-86.08-274.24z">
                     </path>
