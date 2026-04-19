@@ -3,11 +3,10 @@ import { useTodoStore } from '@/stores/todo';
 
 const todoStore = useTodoStore();
 
-
 </script>
 
 <template>
-    <ul class="list rounded-box gap-3">
+    <ul class="list rounded-box gap-3 ">
 
         <li v-for="todo in todoStore.todoList" :key="todo.id"
             class="list-row border-primary border flex items-center shadow-md hover:bg-base-200 transition duration-300 ease-in-out">
@@ -31,5 +30,7 @@ const todoStore = useTodoStore();
                 </svg>
             </button>
         </li>
+
+        <li class="h-64"></li>
     </ul>
 </template>
