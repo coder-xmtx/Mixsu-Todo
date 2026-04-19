@@ -18,7 +18,8 @@ const addTodo = () => {
         id: nanoid(10),
         content: inputValue.value,
         time: new Date().toLocaleString(),
-        completed: false
+        completed: false,
+        tag: tagValue.value
     })
     // 关闭模态框
     closeModal()
@@ -30,11 +31,16 @@ const isModalOpen = ref(false)
 const inputValue = ref('')
 // 输入框元素的引用，用于自动聚焦
 const inputRef = ref(null)
+// 单选框
+const tagValue = ref('')
+
 
 // 打开模态框的方法
 const openModal = () => {
     // 清空上一次输入的内容
     inputValue.value = ''
+    // 清空上一次选择的标签
+    tagValue.value = ''
     // 显示模态框
     isModalOpen.value = true
     // 等待 DOM 更新后，让输入框自动获得焦点
@@ -72,16 +78,21 @@ onBeforeUnmount(() => {
         <!-- 触发按钮 -->
         <button class="btn btn-primary" @click="openModal">Create Your Todo List</button>
 
-        <!-- 使用 Teleport 将模态框传送到 body 下，避免层级问题 -->
         <Teleport to="body">
-            <!-- 模态框遮罩层，点击背景关闭 -->
+            <!-- 遮罩层：增加 px-4 左右内边距，防止卡片贴边 -->
             <div v-show="isModalOpen"
-                class="fixed top-0 left-0 w-full h-full bg-opacity-50 backdrop-blur-xs flex items-center justify-center z-1000 transition duration-300 ease-in-out"
+                class="fixed top-0 left-0 w-full h-full bg-opacity-50 backdrop-blur-xs flex items-center justify-center z-1000 transition duration-300 ease-in-out px-4"
                 @keydown.esc="closeModal">
-                <!-- 模态框内容容器，阻止点击冒泡，防止点击内容区关闭 -->
-                <div class="card w-96 bg-base-100  shadow-sm border border-primary animate-slideUp" @click.stop>
+                <!-- 
+                  卡片容器：
+                  - w-full 让卡片占满父容器宽度（父容器已有 px-4）
+                  - max-w-sm 限制最大宽度，手机约 384px，视觉舒适
+                  - sm:max-w-md 在稍大屏幕上可略宽
+                -->
+                <div class="card w-full max-w-sm sm:max-w-md bg-base-100 shadow-sm border border-primary animate-slideUp"
+                    @click.stop>
                     <figure>
-                        <img src="/haha2.png" />
+                        <img src="/haha2.png" class="w-full object-cover" />
                     </figure>
                     <div class="card-body gap-5">
                         <label class="floating-label">
@@ -91,19 +102,20 @@ onBeforeUnmount(() => {
                         </label>
                         <div class="flex flex-col gap-2">
                             <p class="font-semibold">Choose a Tag:</p>
+                            <!-- 标签组：允许 flex 换行 + 间距 -->
                             <form class="filter">
                                 <input class="btn btn-info btn-outline btn-sm" type="radio" name="frameworks"
-                                    aria-label="Work" />
+                                    aria-label="Work" value="Work" v-model="tagValue" />
                                 <input class="btn btn-info btn-outline btn-sm" type="radio" name="frameworks"
-                                    aria-label="Life" />
+                                    aria-label="Life" value="Life" v-model="tagValue" />
                                 <input class="btn btn-info btn-outline btn-sm" type="radio" name="frameworks"
-                                    aria-label="Study" />
+                                    aria-label="Study" value="Study" v-model="tagValue" />
                                 <input class="btn btn-info btn-outline btn-sm btn-square" type="reset" value="×" />
                             </form>
                         </div>
                         <div class="card-actions justify-end">
                             <button class="btn btn-soft btn-sm btn-primary" @click="closeModal">Cancel</button>
-                            <button class="btn  btn-sm btn-primary" @click="addTodo">
+                            <button class="btn btn-sm btn-primary" @click="addTodo">
                                 <IconSubmit />
                                 Submit
                             </button>

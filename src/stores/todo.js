@@ -32,6 +32,7 @@ export const useTodoStore = defineStore(
         content: todo.content,
         time: todo.time || new Date().toLocaleString(),
         completed: todo.completed || false,
+        tag: todo.tag || "NULL",
       });
     }
 
