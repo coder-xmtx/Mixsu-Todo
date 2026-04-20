@@ -12,6 +12,7 @@
     "@tailwindcss/vite": "^4.2.2",
     "animejs": "^4.3.6",
     "nanoid": "^5.1.9",
+    "pikaday": "^1.8.2",
     "pinia": "^3.0.4",
     "pinia-plugin-persistedstate": "^4.7.1",
     "tailwindcss": "^4.2.2",
@@ -22,6 +23,7 @@
     "@vitejs/plugin-vue": "^6.0.5",
     "daisyui": "^5.5.19",
     "vite": "^8.0.3",
+    "vite-plugin-pwa": "^1.2.0",
     "vite-plugin-vue-devtools": "^8.1.1"
   },
   "engines": {

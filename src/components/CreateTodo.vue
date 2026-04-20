@@ -3,6 +3,7 @@ import { ref, nextTick, watch, onBeforeUnmount } from 'vue'
 import { nanoid } from 'nanoid'
 import IconSubmit from './icons/IconSubmit.vue'
 import { useTodoStore } from '@/stores/todo'
+import CalendarSelector from './CalendarSelector.vue'
 
 const todoStore = useTodoStore()
 
@@ -113,6 +114,7 @@ onBeforeUnmount(() => {
                                 <input class="btn btn-info btn-outline btn-sm btn-square" type="reset" value="×" />
                             </form>
                         </div>
+                        <CalendarSelector />
                         <div class="card-actions justify-end">
                             <button class="btn btn-soft btn-sm btn-primary" @click="closeModal">Cancel</button>
                             <button class="btn btn-sm btn-primary" @click="addTodo">

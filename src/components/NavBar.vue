@@ -30,7 +30,7 @@ import ThemeSwap from './ThemeSwap.vue';
                 </ul>
             </div>
             <RouterLink
-                class="text-xl normal-case text-primary font-bold px-2 hover:cursor-pointer transition duration-300 ease-in-out"
+                class="text-xl normal-case text-primary font-bold px-2 hover:cursor-pointer transition duration-300 ease-in-out whitespace-nowrap"
                 to="/">Mixsu Todo</RouterLink>
         </div>
         <div class="navbar-center hidden lg:flex">
