@@ -3,6 +3,20 @@ import { useTodoStore } from '@/stores/todo';
 
 const todoStore = useTodoStore();
 
+const formatDeadline = (deadline) => {
+    if (!deadline) return '';
+    try {
+        // 格式: "2025-04-21T14:30"
+        const [date, time] = deadline.split('T');
+        if (!date) return deadline;
+        const [year, month, day] = date.split('-');
+        const formattedTime = time ? ` ${time}` : '';
+        return `${year}年${month}月${day}日${formattedTime}`;
+    } catch {
+        return deadline;
+    }
+};
+
 </script>
 
 <template>
@@ -14,15 +28,16 @@ const todoStore = useTodoStore();
                 <input type="checkbox" :checked="todo.completed" class="checkbox checkbox-primary"
                     @change="todoStore.toggleComplete(todo.id)" />
             </div>
-            <div class="list-col-grow flex-1">
+            <div class="list-col-grow flex-1 flex flex-col gap-2">
                 <div class="font-semibold text-lg" :class="{ 'line-through opacity-50': todo.completed }">{{
                     todo.content }}
                 </div>
                 <div class="text-xs font-semibold opacity-60">TIME: {{ todo.time }}</div>
+                <div v-if="todo.deadline" class="badge badge-outline badge-error font-semibold md:text-md text-xs">
+                    {{ formatDeadline(todo.deadline) }}</div>
             </div>
-            <!-- 如果值为“NULL”就把样式换成badg-error -->
             <div class="badge badge-soft " :class="[todo.tag === 'NULL' ? 'badge-error' : 'badge-primary']">{{ todo.tag
-                }}
+            }}
             </div>
             <button class="btn btn-square btn-ghost" @click="todoStore.deleteTodo(todo.id)">
                 <svg t="1776526557880" class="icon fill-primary" viewBox="0 0 1024 1024" version="1.1"

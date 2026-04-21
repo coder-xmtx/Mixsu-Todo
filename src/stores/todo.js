@@ -27,12 +27,14 @@ export const useTodoStore = defineStore(
     function addTodo(todo) {
       // 保证传入的数据结构符合预期，可以加上简单校验
       if (!todo || !todo.content) return;
+      console.log('addTodo received deadline:', todo.deadline);
       todoList.value.unshift({
         id: todo.id,
         content: todo.content,
         time: todo.time || new Date().toLocaleString(),
         completed: todo.completed || false,
         tag: todo.tag || "NULL",
+        deadline: todo.deadline || null,
       });
     }
 

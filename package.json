@@ -12,7 +12,6 @@
     "@tailwindcss/vite": "^4.2.2",
     "animejs": "^4.3.6",
     "nanoid": "^5.1.9",
-    "pikaday": "^1.8.2",
     "pinia": "^3.0.4",
     "pinia-plugin-persistedstate": "^4.7.1",
     "tailwindcss": "^4.2.2",

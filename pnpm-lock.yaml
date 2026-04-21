@@ -17,9 +17,6 @@ importers:
       nanoid:
         specifier: ^5.1.9
         version: 5.1.9
-      pikaday:
-        specifier: ^1.8.2
-        version: 1.8.2
       pinia:
         specifier: ^3.0.4
         version: 3.0.4(vue@3.5.32)
@@ -1742,9 +1739,6 @@ packages:
   picomatch@4.0.4:
     resolution: {integrity: sha512-QP88BAKvMam/3NxH6vj2o21R6MjxZUAd6nlwAS/pnGvN9IVLocLHxGYIzFhg6fUQ+5th6P4dv4eW9jX3DSIj7A==}
     engines: {node: '>=12'}
-
-  pikaday@1.8.2:
-    resolution: {integrity: sha512-TNtsE+34BIax3WtkB/qqu5uepV1McKYEgvL3kWzU7aqPCpMEN6rBF3AOwu4WCwAealWlBGobXny/9kJb49C1ew==}
 
   pinia-plugin-persistedstate@4.7.1:
     resolution: {integrity: sha512-WHOqh2esDlR3eAaknPbqXrkkj0D24h8shrDPqysgCFR6ghqP/fpFfJmMPJp0gETHsvrh9YNNg6dQfo2OEtDnIQ==}
@@ -4128,8 +4122,6 @@ snapshots:
   picomatch@2.3.2: {}
 
   picomatch@4.0.4: {}
-
-  pikaday@1.8.2: {}
 
   pinia-plugin-persistedstate@4.7.1(pinia@3.0.4(vue@3.5.32)):
     dependencies:

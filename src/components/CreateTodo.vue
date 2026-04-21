@@ -15,12 +15,14 @@ const addTodo = () => {
         return
     }
     // 存入数据
+    console.log('deadline value:', deadline.value)
     todoStore.addTodo({
         id: nanoid(10),
         content: inputValue.value,
         time: new Date().toLocaleString(),
         completed: false,
-        tag: tagValue.value
+        tag: tagValue.value,
+        deadline: deadline.value || null
     })
     // 关闭模态框
     closeModal()
@@ -34,7 +36,8 @@ const inputValue = ref('')
 const inputRef = ref(null)
 // 单选框
 const tagValue = ref('')
-
+// 新增一个 deadline 响应式变量
+const deadline = ref('')
 
 // 打开模态框的方法
 const openModal = () => {
@@ -42,6 +45,7 @@ const openModal = () => {
     inputValue.value = ''
     // 清空上一次选择的标签
     tagValue.value = ''
+    deadline.value = ''
     // 显示模态框
     isModalOpen.value = true
     // 等待 DOM 更新后，让输入框自动获得焦点
@@ -101,6 +105,7 @@ onBeforeUnmount(() => {
                             <input type="text" placeholder="TODO" v-model.trim="inputValue"
                                 class="input input-md outline-none w-full" />
                         </label>
+                        <CalendarSelector v-model="deadline" />
                         <div class="flex flex-col gap-2">
                             <p class="font-semibold">Choose a Tag:</p>
                             <!-- 标签组：允许 flex 换行 + 间距 -->
@@ -114,7 +119,7 @@ onBeforeUnmount(() => {
                                 <input class="btn btn-info btn-outline btn-sm btn-square" type="reset" value="×" />
                             </form>
                         </div>
-                        <CalendarSelector />
+
                         <div class="card-actions justify-end">
                             <button class="btn btn-soft btn-sm btn-primary" @click="closeModal">Cancel</button>
                             <button class="btn btn-sm btn-primary" @click="addTodo">
